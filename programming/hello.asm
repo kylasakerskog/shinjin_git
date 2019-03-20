@@ -5,11 +5,11 @@ section .text
 global _start
 
 _start:
-mov rax, 4 
-mov rdi, 1              ; Write to standard out = 1
+mov rax, 1 		; write
+mov rdi, 1              ; stdout
 mov rsi, hello_world    ; The address of hello_world string
 mov rdx, 14             ; The size to write
-syscall                 ; Invoke the kernel
-mov rax, 1
-mov rdi, 0              ; Exit success = 0
-syscall                 ; Invoke the kernel
+syscall                 
+mov rax, 60		; exit
+mov rdi, 0              ; Exit success = 0, stdin
+syscall                 
