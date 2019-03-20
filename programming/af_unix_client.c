@@ -13,6 +13,7 @@
 int main(){
   int skt = 0;
   int send_size = 0;
+  int recv_size = 0;
   char buf[BUFFER_SIZE];
   if((skt = socket(AF_UNIX, SOCK_STREAM, 0)) < 0){
     perror("socket_error");
@@ -35,12 +36,17 @@ int main(){
       close(skt);
       exit(3);
     }
-    //printf("%s\n", buf);
     if((send_size = send(skt, buf, strnlen(buf, BUFFER_SIZE), 0)) < 0){
       perror("send_error");
       close(skt);
       exit(4);
-    }    
+    }
+    if((recv_size = recv(skt, buf, sizeof(buf) -1, 0 )) < 0){
+      perror("recv_error");
+      close(skt);
+      exit(5);
+    }
+    printf("%s\n", buf);    
   }
   printf("a\n");
   close(skt);
