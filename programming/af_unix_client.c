@@ -33,16 +33,16 @@ int main(){
     if(fgets(buf, BUFFER_SIZE, stdin) == NULL){
       perror("fgets_error");
       close(skt);
-      exit(1);
+      exit(3);
     }
     //printf("%s\n", buf);
     if((send_size = send(skt, buf, strnlen(buf, BUFFER_SIZE), 0)) < 0){
       perror("send_error");
       close(skt);
-      exit(3);
-    }
-    
-  }  
+      exit(4);
+    }    
+  }
+  printf("a\n");
   close(skt);
   return 0;
 }

@@ -42,13 +42,12 @@ int main(){
       close(skt);
       exit(4);
     }
-  }
-  while(1){
-    if(recv_size = recv(fd, buf, sizeof(buf)-1, 0) < 0){
+    if((recv_size = recv(fd, buf, sizeof(buf)-1, 0)) < 0){
       perror("recv_error");
       close(skt);
       exit(5);
     }
+    //printf("%d\n",recv_size);
     buf[recv_size] = '\0';
     printf("message: %s\n", buf);
     if(close(fd) == 1){
@@ -56,8 +55,7 @@ int main(){
       close(skt);
       exit(6);
     }
-  }
-  
+  }  
   close(skt);
   return 0;
 }
