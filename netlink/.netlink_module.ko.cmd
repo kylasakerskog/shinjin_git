@@ -1,0 +1,1 @@
+cmd_/home/moririn/shinjin_git/netlink/netlink_module.ko := ld -r -m elf_x86_64 -z max-page-size=0x200000 -T ./scripts/module-common.lds --build-id  -o /home/moririn/shinjin_git/netlink/netlink_module.ko /home/moririn/shinjin_git/netlink/netlink_module.o /home/moririn/shinjin_git/netlink/netlink_module.mod.o ;  true

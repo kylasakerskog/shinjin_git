@@ -1,6 +1,6 @@
 obj-m := netlink_module.o
 
-KDIR    := /lib/modules/$(shell uname -r)/build
+KDIR    := /lib/modules/4.15.0-46-generic/build
 VERBOSE = 0
 
 all:
